@@ -3,7 +3,7 @@
 -- Question 3: How much can we spend on acquiring new customers?
 
 -- Open stores.db file with DB Browser for SQLite. Export each table as csv.alter
--- Create new DB in MySql, Import csv tables
+-- Create new DB in MySql, Import csv tables (by using INSERT INTO).
 
 -- Explore the Data
 -- Create a general table 
@@ -28,7 +28,7 @@ CREATE TABLE customers (
   creditLimit DECIMAL(10,2) DEFAULT NULL);
 	
 -- load into customers table
-LOAD DATA LOCAL INFILE '/Users/oleksiirastorhuiev/Library/Mobile Documents/com~apple~CloudDocs/Data analytics/SQL Project for github/for mysql/customers.csv'
+LOAD DATA LOCAL INFILE '/Users/oleksiirastorhuiev/SQL Project for github/customers.csv'
 INTO TABLE customers
 CHARACTER SET utf8
 FIELDS TERMINATED BY ',' 
@@ -48,7 +48,7 @@ CREATE TABLE employees (
   jobTitle NVARCHAR(50) NOT NULL);
 
 -- load data into table employees
-LOAD DATA LOCAL INFILE '/Users/oleksiirastorhuiev/Library/Mobile Documents/com~apple~CloudDocs/Data analytics/SQL Project for github/for mysql/employees.csv'
+LOAD DATA LOCAL INFILE '/Users/oleksiirastorhuiev/SQL Project for github/employees.csv'
 INTO TABLE employees
 CHARACTER SET utf8
 FIELDS TERMINATED BY ',' 
@@ -69,7 +69,7 @@ CREATE TABLE offices (
   territory NVARCHAR(10) NOT NULL);
 
 -- load data into table offices
-LOAD DATA LOCAL INFILE '/Users/oleksiirastorhuiev/Library/Mobile Documents/com~apple~CloudDocs/Data analytics/SQL Project for github/for mysql/offices.csv'
+LOAD DATA LOCAL INFILE '/Users/oleksiirastorhuiev/SQL Project for github/offices.csv'
 INTO TABLE offices
 CHARACTER SET utf8
 FIELDS TERMINATED BY ',' 
@@ -87,7 +87,7 @@ CREATE TABLE orderdetails (
   orderLineNumber INTEGER NOT NULL);
 
 -- load data into table orderdetails
-LOAD DATA LOCAL INFILE '/Users/oleksiirastorhuiev/Library/Mobile Documents/com~apple~CloudDocs/Data analytics/SQL Project for github/for mysql/orderdetails.csv'
+LOAD DATA LOCAL INFILE '/Users/oleksiirastorhuiev/SQL Project for github/orderdetails.csv'
 INTO TABLE orderdetails
 CHARACTER SET utf8
 FIELDS TERMINATED BY ',' 
@@ -106,7 +106,7 @@ CREATE TABLE orders (
   customerNumber INTEGER NOT NULL);
 
 -- load data into orders
-LOAD DATA LOCAL INFILE '/Users/oleksiirastorhuiev/Library/Mobile Documents/com~apple~CloudDocs/Data analytics/SQL Project for github/for mysql/orders.csv'
+LOAD DATA LOCAL INFILE '/Users/oleksiirastorhuiev/SQL Project for github/orders.csv'
 INTO TABLE orders
 CHARACTER SET utf8
 FIELDS TERMINATED BY ',' 
@@ -122,7 +122,7 @@ CREATE TABLE payments (
   amount DECIMAL(10,2) NOT NULL);
 
 -- load data into table payments
-LOAD DATA LOCAL INFILE '/Users/oleksiirastorhuiev/Library/Mobile Documents/com~apple~CloudDocs/Data analytics/SQL Project for github/for mysql/payments.csv'
+LOAD DATA LOCAL INFILE '/Users/oleksiirastorhuiev/SQL Project for github/payments.csv'
 INTO TABLE payments
 CHARACTER SET utf8
 FIELDS TERMINATED BY ',' 
@@ -138,7 +138,7 @@ CREATE TABLE productlines (
   image MEDIUMBLOB);
 
 -- load data into productlines table
-LOAD DATA LOCAL INFILE '/Users/oleksiirastorhuiev/Library/Mobile Documents/com~apple~CloudDocs/Data analytics/SQL Project for github/for mysql/productlines.csv'
+LOAD DATA LOCAL INFILE '/Users/oleksiirastorhuiev/SQL Project for github/productlines.csv'
 INTO TABLE productlines
 CHARACTER SET utf8
 FIELDS TERMINATED BY ',' 
@@ -159,7 +159,7 @@ CREATE TABLE products (
   MSRP DECIMAL(10,2) NOT NULL);
 
 -- insert into table products
-LOAD DATA LOCAL INFILE '/Users/oleksiirastorhuiev/Library/Mobile Documents/com~apple~CloudDocs/Data analytics/SQL Project for github/for mysql/products.csv'
+LOAD DATA LOCAL INFILE '/Users/oleksiirastorhuiev/SQL Project for github/products.csv'
 INTO TABLE products
 CHARACTER SET utf8
 FIELDS TERMINATED BY ',' 
@@ -345,12 +345,11 @@ SELECT year_and_month,
   FROM new_customers_by_month_table;
 
 
--- It can be seen that the number of customers has been decreasing since 2003, and in 2004, we had the lowest values. 
--- That's why it would worth considering spending money for acquiring new clients. 
+-- As it can be seen, the number of customers has been decreasing since 2003, reaching the lowest values in 2004. 
+-- Based on that, it is reasonable to expend money acquiring new customers.
 
--- Les's calculate, how many money we could spend for acquiring new customers.
--- For this we can find the Customer Lifetime Value (LTV) - important metric that this represents the average amount 
--- of money a customers generates through out its reltationship with a company.
+-- For the purpose of finding how much money we can spend acquiring new customers, we can calculate the Customer Lifetime Value (LTV), 
+-- which is important KPI metric. It referes to the average amount of money a customer generates throughout its relationship with a company.
 
 --  How much can we spend on acquiring new customers?
 
